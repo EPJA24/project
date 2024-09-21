@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
+
 import ImageFiller from 'react-image-filler';
-import { BookOverviewContainer, ImageContainer, Title } from './BookOverview.styled'
+import { Check, Forward, Star } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
+
+import { BookOverviewContainer, ImageContainer, BookTitle, Controls } from './styles/BookOverview.styled'
 import BookStatistics from './BookStatistics';
 import Button from '../../ui/button/Button';
-import { Check, Forward } from 'lucide-react';
 
 interface BookOverviewProps {
   imageSrc?: string | undefined;
@@ -15,6 +18,16 @@ interface BookOverviewProps {
 }
 
 const BookOverview = ({imageSrc, title, numberOfPages, rating, publishYear, isFinished}: BookOverviewProps) => {
+  const location = useLocation()
+  const [isCopied, setIsCopied] = useState(false);
+
+  const copyClipboard = () => {
+    navigator.clipboard.writeText(`${location.pathname}`);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 1000);
+  }
+
+
   return (
     <BookOverviewContainer>
       <ImageContainer>
@@ -23,13 +36,14 @@ const BookOverview = ({imageSrc, title, numberOfPages, rating, publishYear, isFi
         : 
           <ImageFiller width={350} height={520} color='black' background='white' style={{borderRadius: "10px"}}/>
         }
-        <Title>{title}</Title>
+        <BookTitle $primary>{title}</BookTitle>
       </ImageContainer>
       <BookStatistics numberOfPages={numberOfPages} rating={rating} publishYear={publishYear}/>
-      <div style={{display: "flex", gap: "10px"}}>
-        <Button icon={<Forward />}>Share</Button>
+      <Controls>
+        <Button icon={<Forward />} onClick={copyClipboard} disabled={isCopied}>{isCopied ? "Copied" : "Share"}</Button>
         <Button icon={<Check />}>{isFinished ? "Mark as unread" : "Mark as read"}</Button>
-      </div>
+        <Button icon={<Star />}>Add review</Button>
+      </Controls>
     </BookOverviewContainer>
   )
 }

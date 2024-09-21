@@ -1,17 +1,18 @@
 import { styled } from 'styled-components';
-
+import { Title } from '../../../styles';
 
 const BookOverviewContainer = styled.div`
   background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  padding: 70px 50px;
   gap: 30px;
   flex: 1;
 `;
 
 const ImageContainer = styled.div`
-  padding-top: 70px;
   display: flex;
   width: 100%;
   height: fit-content;
@@ -19,15 +20,18 @@ const ImageContainer = styled.div`
   position: relative;
 `
 
-const Title = styled.h1`
+const BookTitle = styled(Title)`
   font-size: 72px;
-  font-family: 'Poppins';
   position: absolute;
   color: white;
-  user-select: none;
-  bottom: -85px;
+  bottom: -40px;
   text-align: center;
   mix-blend-mode: difference;
 `
 
-export { BookOverviewContainer, ImageContainer, Title }
+const Controls = styled.div`
+  display: flex;
+  gap: 10px;
+`
+
+export { BookOverviewContainer, ImageContainer, BookTitle, Controls }
