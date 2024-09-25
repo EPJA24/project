@@ -19,6 +19,7 @@ const Button = styled.button<{$primary?: boolean}>`
   font-weight: bold;
   padding: 4px 10px;
   width: fit-content;
+  min-width: 150px;
   color: var(--primary-text-color);
   border-radius: 30px;
   transition: ease-in 0.1s;

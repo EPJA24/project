@@ -13,21 +13,21 @@ let rootElement: ReactDOM.Root
 export const mount = (Сomponent, element = document.getElementById('app')) => {
   const rootElement = ReactDOM.createRoot(element);
   rootElement.render(
-    <Provider store={store}>
+    // <Provider store={store}>
+    // </Provider>
       <BrowserRouter>
         <Сomponent/>
       </BrowserRouter>
-    </Provider>
   );
 
   if(module.hot) {
       module.hot.accept('./App', ()=> {
         rootElement.render(
-          <Provider store={store}>
+          // <Provider store={store}>
+          // </Provider>
             <BrowserRouter>
               <Сomponent/>
             </BrowserRouter>
-          </Provider>
       );
       })
   }
