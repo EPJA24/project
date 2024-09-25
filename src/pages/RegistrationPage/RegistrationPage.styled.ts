@@ -9,6 +9,15 @@ const BookPageContainer = styled.div`
   }
 `;
 
+const BackgroundContainer = styled.div`
+  background-color: black;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100vh;
+`;
 
 
-export { BookPageContainer }
+
+export { BookPageContainer, BackgroundContainer }
