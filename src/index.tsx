@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
+  
+import App from './app';
   
 export default () => <App/>;
   
@@ -10,19 +9,11 @@ let rootElement: ReactDOM.Root
   
 export const mount = (Сomponent, element = document.getElementById('app')) => {
   const rootElement = ReactDOM.createRoot(element);
-  rootElement.render(
-    <BrowserRouter>
-      <Сomponent/>
-    </BrowserRouter>
-  );
+  rootElement.render(<Сomponent/>);
 
   if(module.hot) {
-      module.hot.accept('./App', ()=> {
-        rootElement.render(
-          <BrowserRouter>
-            <Сomponent/>
-          </BrowserRouter>
-      );
+      module.hot.accept('./app', ()=> {
+        rootElement.render(<Сomponent/>);
       })
   }
 };
