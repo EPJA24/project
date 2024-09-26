@@ -4,13 +4,6 @@ export type Edition = {
   imageSrc: string | undefined;
 }
 
-export type Review = {
-  userId: string;
-  rating: number;
-  comment?: string;
-  timestamp: Date;
-}
-
 export type Book = {
   id: string;
   bookName: string;
@@ -18,5 +11,4 @@ export type Book = {
   rating: number;
   publishYear: number;
   bookUrl: string;
-  usersReview: Review[]
 }

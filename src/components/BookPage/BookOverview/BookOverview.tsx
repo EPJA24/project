@@ -7,8 +7,6 @@ import { useLocation } from 'react-router-dom';
 import { BookOverviewContainer, ImageContainer, BookTitle, Controls } from './styles/BookOverview.styled'
 import BookStatistics from './BookStatistics';
 import Button from '../../ui/button/Button';
-import useModal from '../../../hooks/useModal';
-import ReviewModal from './ReviewModal';
 
 interface BookOverviewProps {
   imageSrc?: string | undefined;
@@ -22,13 +20,13 @@ interface BookOverviewProps {
 const BookOverview = ({imageSrc, title, numberOfPages, rating, publishYear, isFinished}: BookOverviewProps) => {
   const location = useLocation()
   const [isCopied, setIsCopied] = useState(false);
-  const { isOpen, handleClose, handleOpen } = useModal();
 
   const copyClipboard = () => {
     navigator.clipboard.writeText(`${location.pathname}`);
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 1000);
   }
+
 
   return (
     <BookOverviewContainer>
@@ -44,8 +42,7 @@ const BookOverview = ({imageSrc, title, numberOfPages, rating, publishYear, isFi
       <Controls>
         <Button icon={<Forward />} onClick={copyClipboard} disabled={isCopied}>{isCopied ? "Copied" : "Share"}</Button>
         <Button icon={<Check />}>{isFinished ? "Mark as unread" : "Mark as read"}</Button>
-        <Button icon={<Star />} onClick={handleOpen}>Add review</Button>
-        {isOpen && <ReviewModal handleClose={handleClose}/>}
+        <Button icon={<Star />}>Add review</Button>
       </Controls>
     </BookOverviewContainer>
   )
