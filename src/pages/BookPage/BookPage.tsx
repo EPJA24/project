@@ -1,7 +1,7 @@
 import React from 'react'
-import { BookPageContainer } from './BookPage.styled';
+import { BookDescription, BookPageContainer } from './BookPage.styled';
 import BookOverview from '../../components/BookPage/BookOverview/BookOverview';
-import BookDescription from '../../components/BookPage/BookDescription/BookDescription';
+import Button from '../../components/ui/button/Button';
 
 const BookPage = () => {
   return (

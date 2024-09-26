@@ -1,15 +1,15 @@
 import React, { HTMLAttributes } from 'react';
 import { Button as Btn, Icon } from './Button.styled'
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   icon?: JSX.Element;
   primary?: boolean;
 }
 
-const Button = ({children, icon, primary, ...props}: ButtonProps) => {
+const Button = ({children, icon, primary}: ButtonProps) => {
   return (
-    <Btn $primary={primary} {...props}>
+    <Btn $primary={primary}>
       {children}
       {icon && <Icon $primary={primary}>{icon}</Icon>}
     </Btn>
