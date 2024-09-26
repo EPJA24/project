@@ -1,8 +1,9 @@
-import { styled } from 'styled-components';
-import { Title } from '../../../styles';
+import { styled } from "styled-components";
+import { Title } from "../../../styles";
 
 const BookOverviewContainer = styled.div`
   background-color: black;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,6 +11,14 @@ const BookOverviewContainer = styled.div`
   padding: 70px 50px;
   gap: 30px;
   flex: 1;
+
+  @media screen and (max-width: 1024px) {
+    min-height: 100vh;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 35px 20px;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -18,7 +27,7 @@ const ImageContainer = styled.div`
   height: fit-content;
   justify-content: center;
   position: relative;
-`
+`;
 
 const BookTitle = styled(Title)`
   font-size: 72px;
@@ -27,11 +36,21 @@ const BookTitle = styled(Title)`
   bottom: -40px;
   text-align: center;
   mix-blend-mode: difference;
-`
+
+  @media screen and (max-width: 1024px) {
+    font-size: 54px;
+    bottom: -25px;
+  }
+`;
 
 const Controls = styled.div`
   display: flex;
   gap: 10px;
-`
 
-export { BookOverviewContainer, ImageContainer, BookTitle, Controls }
+  @media screen and (max-width: 620px) {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+`;
+
+export { BookOverviewContainer, ImageContainer, BookTitle, Controls };

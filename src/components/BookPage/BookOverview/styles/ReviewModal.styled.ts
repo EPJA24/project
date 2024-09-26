@@ -30,7 +30,6 @@ const RatingItem = styled.button<{ $active: boolean; $color: string }>`
   cursor: pointer;
   transition: color 0.2s;
   &:hover {
-    color: white;
     transform: scale(1.1);
   }
 `;

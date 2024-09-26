@@ -35,6 +35,10 @@ const Title = styled.h1<{ $primary?: boolean }>`
   margin: 0;
   margin-top: 25px;
   color: var(--primary-text-color);
+
+  @media screen and (max-width: 1024px) {
+    font-size: 24px;
+  }
 `;
 
 export { Title, GlobalStyle };

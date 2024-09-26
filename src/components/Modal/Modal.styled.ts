@@ -9,8 +9,8 @@ const ModalWrapper = styled.div<{ $width: number; $height: number }>`
   display: flex;
   flex-direction: column;
   padding: 20px 30px;
-  width: ${(props) => props.$width}px;
-  height: ${(props) => props.$height}px;
+  width: fit-content;
+  height: fit-content;
   top: 0;
   left: 0;
   bottom: 0;
@@ -30,6 +30,7 @@ const ModalHeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 30px;
   margin: 15px 0;
 `;
 
@@ -38,6 +39,7 @@ const ModalTitle = styled(Title)`
   font-size: 36px;
   font-weight: bold;
   color: black;
+  -webkit-line-clamp: 1;
 `;
 
 const Content = styled.div`

@@ -1,9 +1,9 @@
-import { styled } from 'styled-components'
+import { styled } from "styled-components";
 
-const Button = styled.button<{$primary?: boolean}>`
-  --primary-color: ${props => props.$primary ? "black" : "white"};
-  --primary-text-color: ${props => props.$primary ? "white" : "black"};
-  --disabled-color: ${props => props.$primary ? "4c4c4c" : "b2b2b2"};
+const Button = styled.button<{ $primary?: boolean }>`
+  --primary-color: ${(props) => (props.$primary ? "black" : "white")};
+  --primary-text-color: ${(props) => (props.$primary ? "white" : "black")};
+  --disabled-color: ${(props) => (props.$primary ? "4c4c4c" : "b2b2b2")};
   --hover-color: #989898;
 
   background-color: var(--primary-color);
@@ -19,13 +19,14 @@ const Button = styled.button<{$primary?: boolean}>`
   font-weight: bold;
   padding: 4px 10px;
   width: fit-content;
+  max-width: 250px;
   min-width: 150px;
   color: var(--primary-text-color);
   border-radius: 30px;
   transition: ease-in 0.1s;
 
   &:hover {
-    color: var(--hover-color)
+    color: var(--hover-color);
   }
 
   &:disabled {
@@ -34,14 +35,23 @@ const Button = styled.button<{$primary?: boolean}>`
     color: #b2b2b2;
   }
 
-  &:active:not(:disabled)  {
+  &:active:not(:disabled) {
     transform: scale(0.97);
   }
-`
 
-const Icon = styled.div<{$primary?: boolean}>`
-  --primary-color: ${props => !props.$primary ? 'black' : 'white'};
-  --primary-text-color: ${props => props.$primary ? "black" : "white"};
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 420px) {
+    min-width: 80px;
+    gap: 4px;
+  }
+`;
+
+const Icon = styled.div<{ $primary?: boolean }>`
+  --primary-color: ${(props) => (!props.$primary ? "black" : "white")};
+  --primary-text-color: ${(props) => (props.$primary ? "black" : "white")};
 
   background-color: var(--primary-color);
   color: var(--primary-text-color);
@@ -51,6 +61,10 @@ const Icon = styled.div<{$primary?: boolean}>`
   display: flex;
   justify-content: center;
   align-items: center;
-`
 
-export { Button, Icon }
+  @media screen and (max-width: 1024px) {
+    padding: 4px;
+  }
+`;
+
+export { Button, Icon };
