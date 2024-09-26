@@ -5,6 +5,10 @@ const Form = styled.form`
   align-items: center;
   flex-direction: column;
   gap: 40px;
+
+  @media screen and (max-width: 500px) {
+    gap: 20px;
+  }
 `;
 
 const RatingBarWrapper = styled.div`
@@ -19,6 +23,11 @@ const RatingBarWrapper = styled.div`
   padding: 0 45px;
   border-radius: 30px;
   border: none;
+
+  @media screen and (max-width: 500px) {
+    padding: 0 25px;
+    margin-top: 20px;
+  }
 `;
 
 const RatingItem = styled.button<{ $active: boolean; $color: string }>`
@@ -29,10 +38,15 @@ const RatingItem = styled.button<{ $active: boolean; $color: string }>`
   color: ${(props) => (props.$active ? props.$color : "gray")};
   cursor: pointer;
   transition: color 0.2s;
+  font-weight: bold;
   &:hover {
     transform: scale(1.1);
   }
-`;
+
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+  }
+  `;
 
 const Comments = styled.textarea`
   box-sizing: border-box;

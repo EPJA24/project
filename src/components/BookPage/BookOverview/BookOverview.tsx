@@ -31,6 +31,8 @@ const BookOverview = () => {
     navigator.clipboard.writeText(`${location.pathname}`);
     setIsCopied(true);
     const timeout = setTimeout(() => setIsCopied(false), 1000);
+
+    return () => clearTimeout(timeout);
   };
 
   const markAsRead = () => {

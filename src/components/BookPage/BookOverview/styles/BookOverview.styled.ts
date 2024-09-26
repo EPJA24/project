@@ -16,7 +16,7 @@ const BookOverviewContainer = styled.div`
     min-height: 100vh;
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 620px) {
     padding: 35px 20px;
   }
 `;

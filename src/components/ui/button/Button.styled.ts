@@ -43,6 +43,10 @@ const Button = styled.button<{ $primary?: boolean }>`
     width: 100%;
   }
 
+  @media screen and (max-width: 500px) {
+    height: 45px;
+  }
+
   @media screen and (max-width: 420px) {
     min-width: 80px;
     gap: 4px;

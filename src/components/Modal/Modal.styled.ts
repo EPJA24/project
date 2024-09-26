@@ -32,6 +32,10 @@ const ModalHeaderWrapper = styled.div`
   align-items: center;
   gap: 30px;
   margin: 15px 0;
+
+  @media screen and (max-width: 500px) {
+    gap: 10px;
+  }
 `;
 
 const ModalTitle = styled(Title)`
@@ -39,7 +43,10 @@ const ModalTitle = styled(Title)`
   font-size: 36px;
   font-weight: bold;
   color: black;
-  -webkit-line-clamp: 1;
+
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+  }
 `;
 
 const Content = styled.div`

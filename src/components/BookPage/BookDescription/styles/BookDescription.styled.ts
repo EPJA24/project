@@ -32,7 +32,7 @@ const Container = styled.div`
 
 const EditionList = styled.ul`
   display: flex;
-  max-width: 1000px;
+  max-width: 1200px;
   flex-wrap: wrap;
   gap: 30px;
   padding: 0;
