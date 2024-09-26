@@ -1,7 +1,7 @@
-import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 
-import { URLs } from './__data__/urls';
+import { URLs } from "./__data__/urls";
 
 const Hello = () => <h1>Hello</h1>;
 

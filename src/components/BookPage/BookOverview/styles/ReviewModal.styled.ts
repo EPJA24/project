@@ -1,16 +1,16 @@
-import { styled } from 'styled-components'
+import { styled } from "styled-components";
 
 const Form = styled.form`
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 40px;
-`
+`;
 
 const RatingBarWrapper = styled.div`
   margin-top: 40px;
   background-color: black;
-  box-sizing:border-box;
+  box-sizing: border-box;
   width: 100%;
   height: 40px;
   display: flex;
@@ -19,24 +19,26 @@ const RatingBarWrapper = styled.div`
   padding: 0 45px;
   border-radius: 30px;
   border: none;
-`
+`;
 
-const RatingItem = styled.button<{$active: boolean, $color: string}>`
+const RatingItem = styled.button<{ $active: boolean; $color: string }>`
   border: none;
   background-color: transparent;
   font-size: 18px;
-  transform: ${props => props.$active ? "scale(1.1)" : "scale(1)"};
-  color: ${props => props.$active ? props.$color : "gray"};
+  transform: ${(props) => (props.$active ? "scale(1.1)" : "scale(1)")};
+  color: ${(props) => (props.$active ? props.$color : "gray")};
   cursor: pointer;
+  transition: color 0.2s;
   &:hover {
     color: white;
     transform: scale(1.1);
   }
-`
+`;
 
 const Comments = styled.textarea`
-  box-sizing:border-box;
+  box-sizing: border-box;
   width: 100%;
+  font-family: "Poppins", sans-serif;
   height: 120px;
   resize: none;
   color: black;
@@ -46,7 +48,7 @@ const Comments = styled.textarea`
   &::placeholder {
     color: gray;
   }
-  padding: 10px 10px
-`
+  padding: 10px 10px;
+`;
 
-export { Form, RatingBarWrapper, RatingItem, Comments }
+export { Form, RatingBarWrapper, RatingItem, Comments };
