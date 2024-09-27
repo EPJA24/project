@@ -8,7 +8,7 @@ const App = () => {
   return (
     <Suspense fallback={<h1>Loading...</h1>}>
       <Routes>
-        <Route path={`/${pkg.name}/:libraryId/:bookId`} element={<BookPage />}/>
+        <Route path={`/${pkg.name}/:bookId`} element={<BookPage />}/>
       </Routes>
     </Suspense>
   );
