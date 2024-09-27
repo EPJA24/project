@@ -3,9 +3,12 @@ import styled from 'styled-components';
 
 const LogoContainer = styled.div`
   display: flex;
-  margin-left: 20px;
+  margin-left: 40px;
   margin-top: 32px;
   align-items: center; 
+  @media (max-width: 768px) {
+     margin-left: 20px;
+  }
 `;
 
 const Logo = styled.img`
@@ -44,7 +47,12 @@ const TextContainer = styled.div`
 
 const Title = styled.h1`
     font-size: 2rem;
-    margin-left: 43px;
+    margin-left: 40px;
+    @media (max-width: 768px) {
+      margin-left: 20px;
+      margin-right: 10px;
+    }
+    
 `;
 
 export { LogoContainer, Logo, VerticalLine, LogoText, TextContainer, Title };

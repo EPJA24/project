@@ -16,6 +16,9 @@ const BackgroundContainer = styled.div`
   flex-direction: column;
   position: relative;
   min-height: 100vh;
+  @media (max-height: 700px) {
+    min-height: 120vh
+  }
 `;
 
 

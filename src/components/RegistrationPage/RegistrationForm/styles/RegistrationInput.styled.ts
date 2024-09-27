@@ -30,7 +30,7 @@ const Input = styled.input`
   border-radius: 20px;
   border: none;
   background-color: #464646;
-  margin-bottom: 20px;
+  margin-bottom: 00px;
   font-size: 1rem;
   align-items: center;
   color: white;
@@ -62,4 +62,10 @@ const Button = styled.button`
   }
 `;
 
-export {InputContainerCont, InputContainer, Input, Label,  ButtonContainer, Button};
+const ErrorMessage = styled.p`
+  color: gray;
+  font-size: 14px;
+`;
+
+
+export {InputContainerCont, InputContainer, Input, Label,  ButtonContainer, Button, ErrorMessage};

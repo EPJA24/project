@@ -7,11 +7,7 @@ const ImageContainer = styled.div`
   width: 60%;
   background-image: url(${image}); 
   background-repeat: no-repeat;
-  @media (max-width: 1200px) {
-   width: 40%;
-   display: table;
-   height: 40%;
-  }
+  background-size: cover;
 `;
 
 export { ImageContainer };

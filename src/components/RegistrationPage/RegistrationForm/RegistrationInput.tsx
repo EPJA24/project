@@ -1,38 +1,36 @@
 import React, { useState } from 'react';
-import {InputContainerCont, InputContainer, Input, Label,  ButtonContainer, Button} from './styles/RegistrationInput.styled'
+import {InputContainerCont, InputContainer, Input, Label,  ButtonContainer, Button, ErrorMessage} from './styles/RegistrationInput.styled'
+import { z } from 'zod';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { schema } from './schemazod';
 
-interface FormData {
-    username: string;
-    password: string;
-  }
+type FormData = z.infer<typeof schema>;
 
 const InputAndButtons = () => {
-    const [formData, setFormData] = useState<FormData>({ username: '', password: '' });
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema),});
   
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const { id, value } = e.target;
-      setFormData(prevState => ({ ...prevState, [id]: value }));
-    };
-  
-    const handleSubmit = () => {
-      console.log('Form Data:', formData);
-      alert(`Username: ${formData.username}, Password: ${formData.password}`);
-    };
+  const onSubmit = (data: FormData) => {
+    console.log('Form Data:', data);
+    alert(`Username: ${data.username}, Password: ${data.password}`);
+  };
   
     return (
       <>
         <InputContainerCont>
           <InputContainer>
             <Label htmlFor="username">username</Label>
-            <Input type="text" id="username" placeholder="Enter your username" value={formData.username} onChange={handleInputChange}/>
+            <Input type="text" id="username" placeholder="Enter your username" {...register('username')}/>
+            <ErrorMessage show={!!errors.username}>{errors.username?.message}</ErrorMessage>
           </InputContainer>
           <InputContainer>
             <Label htmlFor="password">password</Label>
-            <Input type="password" id="password" placeholder="Enter your password" value={formData.password} onChange={handleInputChange}/>
+            <Input type="password" id="password" placeholder="Enter your password" {...register('password')}/>
+            {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
           </InputContainer>
         </InputContainerCont>
         <ButtonContainer>
-          <Button onClick={handleSubmit}>Sign In</Button>
+          <Button onClick={handleSubmit(onSubmit)}>Sign In</Button>
           <Button onClick={() => alert('Sign Up заглушка')}>Sign Up</Button>
         </ButtonContainer>
       </>
