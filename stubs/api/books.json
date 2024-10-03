@@ -2,16 +2,22 @@
   "book1": {
     "name": "The Chronicles of Narnia",
     "author": "Clive Staples Lewis",
-    "year": "1950"
+    "year": "1950",
+    "read": true,
+    "description": "A series of seven portal fantasy novels by British author C. S. Lewis. Illustrated by Pauline Baynes and originally published between 1950 and 1956."
   },
   "book2": {
     "name": "The Chronicles of Narnia",
     "author": "Clive Staples Lewis",
-    "year": "1950"
+    "year": "1950",
+    "read": false,
+    "description": "A series of seven portal fantasy novels by British author C. S. Lewis. Illustrated by Pauline Baynes and originally published between 1950 and 1956."
   },
   "book3": {
     "name": "The Chronicles of Narnia",
     "author": "Clive Staples Lewis",
-    "year": "1950"
+    "year": "1950",
+    "read": true,
+    "description": "A series of seven portal fantasy novels by British author C. S. Lewis. Illustrated by Pauline Baynes and originally published between 1950 and 1956."
   }
 }

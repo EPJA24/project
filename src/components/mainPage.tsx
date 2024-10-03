@@ -13,6 +13,11 @@ const Container = styled.div`
     top: 3vw;
     left: 3vw;
     height: auto;
+    @media (max-width: 915px) {
+        top: 65vw;
+        left: 20vw;
+        
+    }
 `
 
 export default function MainPage() {

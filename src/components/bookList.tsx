@@ -1,65 +1,93 @@
 import React from 'react';
 import styled from 'styled-components'
 import books from '../../stubs/api/books.json'
-import {Switch} from "./switch";
+import {useState} from "react";
+
 
 const Cover = styled.img `
     
     width: 10vw;
-    left: 5%;
-    top: 5%;
+    left: 1vw;
+    top: 1vw;
     position: relative;
     height: 12vw;
     
 `
-const Container = styled.div`
+const Container = styled.li`
     color: white;
     position: relative;
     left: 3vw;
-    top: 10%;
+    top: 2vw;
     display: flex;
-    border: solid 0.4vw white;
+    border: solid 0.2vw white;
     width: 60vw;
     height: 14vw;
     border-radius: 2vw;
-    margin-top: 2vw;
-    @media (max-width: 768px) {
-        left: 1.5vw;
-        top: 50%;
-        position: relative;
-    }
+    margin-bottom: 2vw;
 `
 const BookName = styled.div`
-    position: relative;
-    display: table-column;
-    left: 10%;
+    position: absolute;
+    left: 20%;
     top: 10%;
+    width: 70%;
+    height: 2vw;
     line-height: 2vw;
     font-size: 2vw;
     font-weight: bold;
     font-family: Inter, sans-serif;
 `
 const BookDescription = styled.div`
-    position: relative;
-    left: -18.5%;
-    top: 70%;
+    position: absolute;
+    left: 20%;
+    top: 8vw;
     height: 5vw;
-    width: 35vw;
-    font-size: 2vw;
+    width: 60%;
+    font-size: 1vw;
     font-weight: bold;
     font-family: Inter, sans-serif;
 `
-export const BookList = () => {
+const Read = styled.div`
+    position: absolute;
+    left: 90%;
+    width: 5vw;
+    height: 5vw;
+    top: 8vw;
+    font-size: 1vw;
 
-    return <div style={{position: "relative",top: "10%"}}>
+    color: #919191;
+    font-weight: bold;
+`
+const Wrapper = styled.ul`
+    position: relative;
+    top: 8vw;
+    max-height: 35vw;
+    overflow-y: auto;
+    scrollbar-width: none;
+    width: 65vw;
+    left: 2vw;
+    margin: 0;
+    padding: 0;
+    @media (max-width: 915px) {
+        top: 70vw;
+        left: 16.5vw;
+        color: white;
+        font-size: 4vw;
+        max-height: none;
+        height: 80vw;
+        width: 65vw;
+    }
+`
+
+export const BookList = () => {
+    return <Wrapper>
         {Object.entries(books).map((book,index) => (
+
             <Container>
 
                 <Cover src={require('../images/narnia.jpg')} alt = "cover" />
                 <BookName> {book[1].name} </BookName>
-                <BookDescription> {book[1].author}, {book[1].year}</BookDescription>
-                <Switch num={index} />
-
+                <BookDescription> {book[1].description} </BookDescription>
+                {book[1].read ? <Read> You have already read this book.</Read> : <div />}
             </Container>
-        ))} </div>
+        ))} </Wrapper>
 }
