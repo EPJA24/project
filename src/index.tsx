@@ -1,20 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-  
-import App from './app';
-  
-export default () => <App/>;
-  
-let rootElement: ReactDOM.Root
-  
-export const mount = (Сomponent, element = document.getElementById('app')) => {
-  const rootElement = ReactDOM.createRoot(element);
-  rootElement.render(<Сomponent/>);
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-  if(module.hot) {
-      module.hot.accept('./app', ()=> {
-        rootElement.render(<Сomponent/>);
-      })
+import { BrowserRouter } from "react-router-dom";
+import { store } from "./store/store";
+import { Provider } from "react-redux";
+import { GlobalStyle } from "./components/styles";
+import App from "./App";
+
+export default () => <App />;
+
+let rootElement: ReactDOM.Root;
+
+export const mount = (Сomponent, element = document.getElementById("app")) => {
+  const rootElement = ReactDOM.createRoot(element);
+  rootElement.render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <GlobalStyle />
+        <Сomponent />
+      </BrowserRouter>
+    </Provider>
+  );
+
+  if (module.hot) {
+    module.hot.accept("./App", () => {
+      rootElement.render(
+        <Provider store={store}>
+          <BrowserRouter>
+            <GlobalStyle />
+            <Сomponent />
+          </BrowserRouter>
+        </Provider>
+      );
+    });
   }
 };
 
