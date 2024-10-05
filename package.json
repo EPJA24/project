@@ -36,6 +36,7 @@
         "zod": "^3.23.8"
     },
     "devDependencies": {
+        "@brojs/cli": "^1.0.0",
         "rimraf": "^6.0.1"
     }
 }
