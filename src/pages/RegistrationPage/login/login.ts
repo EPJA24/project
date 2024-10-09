@@ -23,7 +23,7 @@ const login = async (creds: loginCreds): Promise<loginResponse> => {
 
 
     try {
-        const res = await axios.post('www.backendus.com' + '/auth/token', args, {
+        const res = await axios.post('https://www.backendus.com/auth/token', args, {
             withCredentials: true,
         });
 

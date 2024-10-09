@@ -14,26 +14,14 @@ const InputAndButtons = () => {
   const [errorMessage, setErrorMessage] = useState('');
 
   const onSubmit = async (data: FormData) => {
-    setErrorMessage('');
-
     try {
-      const { token, resCode, errorMsg } = await login({ username: data.username, password: data.password });
-
-      if (resCode === 401) {
-        setErrorMessage('Wrong login or password');
-        return;
-      }
-
-      if (errorMsg) {
-        setErrorMessage(errorMsg);
-        return;
-      }
-
-      if (token) {
-        console.log('got token: ', token);
-        console.log('res code: ', resCode);
+      const response = await login({ username: data.username, password: data.password });
+      if (response.resCode === 200) {
         setCookie('is_authorized', true);
+        console.log('token: ', response.token?.access_token);
         window.location.href = '/lb-team/mybook';
+      } else {
+        setErrorMessage(response.errorMsg || 'Login failed');
       }
     } catch (error) {
       console.error('Login error:', error);
