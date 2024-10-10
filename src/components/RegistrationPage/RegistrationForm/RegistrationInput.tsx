@@ -18,6 +18,7 @@ const InputAndButtons = () => {
       const response = await login({ username: data.username, password: data.password });
       if (response.resCode === 200) {
         setCookie('is_authorized', true);
+        setCookie('token', response.token?.access_token);
         console.log('token: ', response.token?.access_token);
         window.location.href = '/lb-team/mybook';
       } else {
