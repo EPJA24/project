@@ -63,8 +63,11 @@ const Button = styled.button`
 `;
 
 const ErrorMessage = styled.p`
+  display: flex;
   color: gray;
   font-size: 14px;
+  align-items: center;
+  justify-content: center;
 `;
 
 

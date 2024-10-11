@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { InputContainerCont, InputContainer, Input, Label, ButtonContainer, Button, ErrorMessage } from './styles/RegistrationInput.styled';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
@@ -10,8 +10,18 @@ import { setCookie } from 'cookies-next';
 type FormData = z.infer<typeof schema>;
 
 const InputAndButtons = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) });
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) });
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  useEffect(() => {
+    if (errorMessage) {
+      const timer = setTimeout(() => {
+        setErrorMessage('');
+      }, 5000); 
+
+      return () => clearTimeout(timer);
+    }
+  }, [errorMessage]);
 
   const onSubmit = async (data: FormData) => {
     try {
@@ -27,6 +37,29 @@ const InputAndButtons = () => {
     } catch (error) {
       console.error('Login error:', error);
       setErrorMessage('An error occurred during login.');
+    }
+  };
+
+  const handleSignUp = async (data: FormData) => {
+    try {
+      const response = await fetch('https://www.backendus.com/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.username,
+          password: data.password,
+        }),
+      });
+      if (response.ok) {
+        setSuccessMessage('Registration successful, you can log account!');
+        reset(); 
+      } else {
+        const errorData = await response.json();
+        setErrorMessage(errorData.message || 'Registration failed');
+      }
+    } catch (error) {
+      console.error('Registration error:', error);
+      setErrorMessage('An error occurred during registration.');
     }
   };
 
@@ -46,9 +79,10 @@ const InputAndButtons = () => {
       </InputContainerCont>
       <ButtonContainer>
         <Button onClick={handleSubmit(onSubmit)}>Sign In</Button>
-        <Button onClick={() => alert('Sign Up заглушка')}>Sign Up</Button>
+        <Button onClick={handleSubmit(handleSignUp)}>Sign Up</Button>
       </ButtonContainer>
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+      {successMessage && <ErrorMessage>{successMessage}</ErrorMessage>}
     </>
   );
 };
