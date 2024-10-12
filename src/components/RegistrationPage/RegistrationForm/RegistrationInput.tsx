@@ -27,9 +27,6 @@ const InputAndButtons = () => {
     try {
       const response = await login({ username: data.username, password: data.password });
       if (response.resCode === 200) {
-        setCookie('is_authorized', true);
-        setCookie('token', response.token?.access_token);
-        console.log('token: ', response.token?.access_token);
         window.location.href = '/lb-team/mybook';
       } else {
         setErrorMessage(response.errorMsg || 'Login failed');
@@ -69,7 +66,6 @@ const InputAndButtons = () => {
         <InputContainer>
           <Label htmlFor="username">username</Label>
           <Input type="text" id="username" placeholder="Enter your username" {...register('username')} />
-          <ErrorMessage show={!!errors.username}>{errors.username?.message}</ErrorMessage>
         </InputContainer>
         <InputContainer>
           <Label htmlFor="password">password</Label>

@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import pkg from "../package.json";
 import Registration from './pages/RegistrationPage/RegistrationPage';
 import Main from './pages/MainPage/MainPage';
+import RegistrationForm from './pages/TestRegister'
 
 const BookPage = lazy(() => import('./pages/BookPage/BookPage'))
 
