@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { schema } from './schemazod';
 import login from '../../../pages/RegistrationPage/login/login';
-import { setCookie } from 'cookies-next';
+import { useNavigate } from 'react-router-dom';
 
 type FormData = z.infer<typeof schema>;
 
@@ -13,6 +13,9 @@ const InputAndButtons = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) });
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (errorMessage) {
       const timer = setTimeout(() => {
@@ -27,7 +30,7 @@ const InputAndButtons = () => {
     try {
       const response = await login({ username: data.username, password: data.password });
       if (response.resCode === 200) {
-        window.location.href = '/lb-team/mybook';
+        navigate('/lb-team/mybook');
       } else {
         setErrorMessage(response.errorMsg || 'Login failed');
       }
