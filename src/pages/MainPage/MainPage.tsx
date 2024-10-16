@@ -7,7 +7,7 @@ import AddBook from "./AddBoook";
 import { MainContainer, LeftSection, RightSection } from './styles/MainPage';
 
 const MainPage = () => {
-    const [books, setBooks] = useState([]); 
+    const [books, setBooks] = useState([]);
     const [initialBooks, setInitialBooks] = useState([]);
 
     useEffect(() => {
@@ -16,9 +16,9 @@ const MainPage = () => {
                 const response = await axios.get('https://www.backendus.com/books/', {
                     withCredentials: true,
                 });
-                setInitialBooks(response.data); 
+                setInitialBooks(response.data);
                 console.log('Fetched books:', response.data);
-                setBooks(response.data); 
+                setBooks(response.data);
             } catch (error) {
                 console.error('Error fetching initial books:', error);
             }
