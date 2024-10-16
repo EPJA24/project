@@ -3,7 +3,6 @@ import { styled } from "styled-components";
 const BookDescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   flex: 2;
   padding: 70px 50px;
   background-color: white;

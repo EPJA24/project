@@ -12,14 +12,13 @@ export type Review = {
 };
 
 export type Book = {
-  id: string;
-  imageSrc: string | undefined;
+  google_books_id: string;
+  id: number;
+  title: string;
   description: string;
-  bookName: string;
-  numberOfPages: number;
-  rating: number;
-  publishYear: number;
-  bookUrl: string | undefined;
-  isFinished: boolean;
-  usersReview: Review[];
+  authors: string;
+  cover_url: string;
+  publisher: string;
+  published_date: string;
+  page_count: number;
 };

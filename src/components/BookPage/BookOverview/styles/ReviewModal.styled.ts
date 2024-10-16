@@ -30,7 +30,7 @@ const RatingBarWrapper = styled.div`
   }
 `;
 
-const RatingItem = styled.button<{ $active: boolean; $color: string }>`
+const RatingItem = styled.span<{ $active: boolean; $color: string }>`
   border: none;
   background-color: transparent;
   font-size: 18px;

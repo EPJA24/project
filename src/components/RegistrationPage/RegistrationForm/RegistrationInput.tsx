@@ -1,26 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import { InputContainerCont, InputContainer, Input, Label, ButtonContainer, Button, ErrorMessage } from './styles/RegistrationInput.styled';
-import { z } from 'zod';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { schema } from './schemazod';
-import login from '../../../pages/RegistrationPage/login/login';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import {
+  InputContainerCont,
+  InputContainer,
+  Input,
+  Label,
+  ButtonContainer,
+  Button,
+  ErrorMessage,
+} from "./styles/RegistrationInput.styled";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { schema } from "./schemazod";
+import login from "../../../pages/RegistrationPage/login/login";
+import { useNavigate } from "react-router-dom";
 
 type FormData = z.infer<typeof schema>;
 
 const InputAndButtons = () => {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) });
-  const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const navigate = useNavigate();
 
   useEffect(() => {
     if (errorMessage) {
       const timer = setTimeout(() => {
-        setErrorMessage('');
-      }, 5000); 
+        setErrorMessage("");
+      }, 5000);
 
       return () => clearTimeout(timer);
     }
@@ -28,38 +41,41 @@ const InputAndButtons = () => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      const response = await login({ username: data.username, password: data.password });
+      const response = await login({
+        username: data.username,
+        password: data.password,
+      });
       if (response.resCode === 200) {
-        navigate('/lb-team/mybook');
+        navigate("/lb-team/mybook");
       } else {
-        setErrorMessage(response.errorMsg || 'Login failed');
+        setErrorMessage(response.errorMsg || "Login failed");
       }
     } catch (error) {
-      console.error('Login error:', error);
-      setErrorMessage('An error occurred during login.');
+      console.error("Login error:", error);
+      setErrorMessage("An error occurred during login.");
     }
   };
 
   const handleSignUp = async (data: FormData) => {
     try {
-      const response = await fetch('https://www.backendus.com/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("https://www.backendus.com/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: data.username,
           password: data.password,
         }),
       });
       if (response.ok) {
-        setSuccessMessage('Registration successful, you can log account!');
-        reset(); 
+        setSuccessMessage("Registration successful, you can log account!");
+        reset();
       } else {
         const errorData = await response.json();
-        setErrorMessage(errorData.message || 'Registration failed');
+        setErrorMessage(errorData.message || "Registration failed");
       }
     } catch (error) {
-      console.error('Registration error:', error);
-      setErrorMessage('An error occurred during registration.');
+      console.error("Registration error:", error);
+      setErrorMessage("An error occurred during registration.");
     }
   };
 
@@ -68,12 +84,24 @@ const InputAndButtons = () => {
       <InputContainerCont>
         <InputContainer>
           <Label htmlFor="username">username</Label>
-          <Input type="text" id="username" placeholder="Enter your username" {...register('username')} />
+          <Input
+            type="text"
+            id="username"
+            placeholder="Enter your username"
+            {...register("username")}
+          />
         </InputContainer>
         <InputContainer>
           <Label htmlFor="password">password</Label>
-          <Input type="password" id="password" placeholder="Enter your password" {...register('password')} />
-          {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
+          <Input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            {...register("password")}
+          />
+          {errors.password && (
+            <ErrorMessage>{errors.password.message}</ErrorMessage>
+          )}
         </InputContainer>
       </InputContainerCont>
       <ButtonContainer>

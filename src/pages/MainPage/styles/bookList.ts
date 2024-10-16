@@ -12,6 +12,7 @@ const Cover = styled.img`
 `;
 const Container = styled.li`
     display: flex;
+    cursor: pointer;
     align-items: flex-start;
     border: 0.2vw solid white;
     border-radius: 2vw;
