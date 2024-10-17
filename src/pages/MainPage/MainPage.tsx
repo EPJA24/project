@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { LogoAndTitle } from "./logo";
 import { BookList } from "./bookList";
+import Welcome from "./Welcome";
 import  SearchBook  from "./SearchBook";
-import AddBook from "./AddBoook";
 import { MainContainer, LeftSection, RightSection } from './styles/MainPage';
 
 const MainPage = () => {
@@ -29,8 +29,8 @@ const MainPage = () => {
     return (
         <MainContainer>
             <LeftSection>
+                <Welcome />
                 <SearchBook setBooks={setBooks} initialBooks={initialBooks} />
-                <AddBook />
                 <BookList initialBooks={books} />
             </LeftSection>
             <RightSection>

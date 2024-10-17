@@ -20,25 +20,38 @@ const Description = styled.div`
     }
 `
 
-const LogOut = styled.button`
+const ButtonAction = styled.button`
     display: flex;
-    width: 6vw;
-    height: 2vw;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5vw 1.5vw;
+    width: auto;
+    height: auto;
     font-size: 1vw;
-    font-weight: bolder;
+    font-weight: bold;
     font-family: Inter, sans-serif;
-    @media (max-width: 915px) {
-        top: 200vw;
-        right: 3vw;
-        font-size: 3vw;
-        height: 10vw;
-        width: 15vw;
+    background-color: #333; 
+    color: white;
+    border: 2px solid transparent; 
+    border-radius: 0.5vw; 
+    cursor: pointer;
+    transition: background-color 0.1s ease, border 0.1s ease, transform 0.1s ease; 
+    margin-bottom: 1vw;
+  
+    &:hover {
+        background-color: #555;
+        border: 2px solid white; 
+    }
+
+    &:active {
+        background-color: #222;
     }
 `;
 
 const LogoContainer = styled.div`
   display: flex;
   align-items: center; 
+  margin-top: 1vw;
   @media (max-width: 768px) {
      margin-left: 20px;
   }
@@ -71,4 +84,13 @@ const LogoText = styled.span`
   }
 `;
 
-export { Description, LogOut, LogoContainer, Logo, VerticalLine, LogoText  };
+const BeautifulText = styled.p`
+  color: #a4a4a4;
+  font-size: 1vw;
+  margin-top: 1vw;
+  font-family: Inter, sans-serif;
+  max-width: 14vw;
+  line-height: 1.5;
+`;
+
+export { Description, ButtonAction, LogoContainer, Logo, VerticalLine, LogoText, BeautifulText };

@@ -16,15 +16,18 @@ const SearchWrapper = styled.div`
     width: 80%; 
     border:  0.2vw solid white;
     border-radius: 20px; 
-    padding: 1.5vw;
+    padding-right: 1.5vw;
+    padding-left: 1.5vw;
+    padding-bottom: 0.5vw;
 `;
 
 const Input = styled.input`
     flex: 1; 
-    padding: 1vw; 
+    padding: 0.5vw; 
     border: none; 
     border-bottom: thin solid white;
     background-color: transparent; 
+    font-size: 26px;
     color: white; 
     outline: none;
 `;
@@ -64,9 +67,7 @@ const SearchBook = ({ setBooks, initialBooks }) => {
         <SearchContainer>
             <SearchWrapper>
                 <Input type="text"  placeholder="Write book name"  value={searchTerm}  onChange={(e) => setSearchTerm(e.target.value)}  />
-                <SearchButton onClick={handleSearch}>
-                    🔍 
-                </SearchButton>
+                <SearchButton onClick={handleSearch}>🔍</SearchButton>
             </SearchWrapper>
         </SearchContainer>
     );

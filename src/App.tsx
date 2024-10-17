@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 import pkg from "../package.json";
 import Registration from './pages/RegistrationPage/RegistrationPage';
 import Main from './pages/MainPage/MainPage';
-import RegistrationForm from './pages/TestRegister';
 import Add from './pages/AddPage/AddPage';
 const BookPage = lazy(() => import('./pages/BookPage/BookPage'))
 
@@ -14,7 +13,7 @@ const App = () => {
                 <Route path={`/${pkg.name}/mybook/:bookId`} element={<BookPage />}/>
                 <Route path={`/${pkg.name}/registration`} element={<Registration />} />
                 <Route path={`/${pkg.name}/mybook`} element={<Main />} />
-                <Route path={`/${pkg.name}/addbook`} element={<Add />} />
+                <Route path={`/${pkg.name}/mybook/addbook`} element={<Add />} />
             </Routes>
         </Suspense>
     );

@@ -7,7 +7,7 @@ import {
   Wrapper,
   FullDescription,
   ReadMoreButton,
-} from "./styles/bookList";
+} from './styles/bookList';
 import { useNavigate } from "react-router-dom";
 
 export const BookList = ({ initialBooks }) => {
@@ -19,37 +19,31 @@ export const BookList = ({ initialBooks }) => {
     setBooks(initialBooks);
   }, [initialBooks]);
 
-  const toggleReadMore = (bookId) => {
+  const toggleReadMore = (bookId, event) => {
+    event.stopPropagation();
     setExpandedBookId(expandedBookId === bookId ? null : bookId);
+  };
+
+  const handleBookClick = (bookId) => {
+    navigate(`${bookId}`);
   };
 
   return (
     <Wrapper>
       {books.map((book) => (
-        <Container
-          key={book.id}
-          onClick={() => navigate(`/lb-team/mybook/${book.id}`)}
-        >
+        <Container key={book.id} onClick={() => handleBookClick(book.id)}>
           <Cover src={book.cover_url} alt="cover" />
           <div>
             <BookName>{book.title}</BookName>
             {expandedBookId === book.id ? (
               <>
-                <FullDescription
-                  dangerouslySetInnerHTML={{ __html: book.description }}
-                />
-                <ReadMoreButton onClick={() => toggleReadMore(book.id)}>
-                  Скрыть
-                </ReadMoreButton>
+                <FullDescription dangerouslySetInnerHTML={{ __html: book.description }} />
+                <ReadMoreButton onClick={(event) => toggleReadMore(book.id, event)}>Hide</ReadMoreButton>
               </>
             ) : (
               <>
-                <BookDescription
-                  dangerouslySetInnerHTML={{ __html: book.description }}
-                />
-                <ReadMoreButton onClick={() => toggleReadMore(book.id)}>
-                  Читать далее...
-                </ReadMoreButton>
+                <BookDescription dangerouslySetInnerHTML={{ __html: book.description }} />
+                <ReadMoreButton onClick={(event) => toggleReadMore(book.id, event)}>Read more...</ReadMoreButton>
               </>
             )}
           </div>

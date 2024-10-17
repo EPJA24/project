@@ -5,6 +5,7 @@ const Cover = styled.img`
     height: 12vw;
     object-fit: cover;
     margin-right: 2vw;
+    border-radius: 10px;
     @media (max-width: 915px) {
         width: 20vw;
         height: 24vw;
