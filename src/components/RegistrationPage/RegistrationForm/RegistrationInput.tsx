@@ -48,7 +48,7 @@ const InputAndButtons = () => {
             });
             if (response.resCode === 200) {
                 Cookies.set('is_auth', true);
-                navigate('/lb-team/mybook');
+                navigate('/lb-team');
             } else {
                 setErrorMessage(response.errorMsg || 'Login failed');
             }

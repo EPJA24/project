@@ -14,7 +14,7 @@ export const LogoAndTitle = () => {
     const navigate = useNavigate();
 
     const handleAddBookClick = () => {
-        navigate('/lb-team/mybook');
+        navigate('/lb-team');
     };
 
     return (

@@ -10,10 +10,10 @@ const App = () => {
     return (
         <Suspense fallback={<h1>Loading...</h1>}>
             <Routes>
-                <Route path={`/${pkg.name}/mybook/:bookId`} element={<BookPage />} />
+                <Route path={`/${pkg.name}/:bookId`} element={<BookPage />} />
                 <Route path={`/${pkg.name}/registration`} element={<Registration />} />
-                <Route path={`/${pkg.name}/mybook`} element={<Main />} />
-                <Route path={`/${pkg.name}/mybook/addbook`} element={<Add />} />
+                <Route path={`/${pkg.name}/`} element={<Main />} />
+                <Route path={`/${pkg.name}/addbook`} element={<Add />} />
             </Routes>
         </Suspense>
     );
