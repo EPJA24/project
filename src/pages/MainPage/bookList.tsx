@@ -31,7 +31,7 @@ export const BookList = ({ initialBooks }) => {
     return (
         <Wrapper data-testid={"wrapper"}>
             {books.map((book) => (
-                <Container data-testid={"cont"} key={book.id} onClick={() => handleBookClick(book.id)}>
+                <Container data-testid={"cont"} key={book.id} onClick={() => handleBookClick(book.id)} isRead={book.is_read}>
                     <Cover data-testid={"cover"} src={book.cover_url} alt="cover" />
                     <div>
                         <BookName data-testid={"name"}>{book.title}</BookName>

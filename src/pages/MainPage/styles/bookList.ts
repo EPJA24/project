@@ -11,7 +11,7 @@ const Cover = styled.img`
         height: 29vw;
     }
 `;
-const Container = styled.li`
+const Container = styled.li<{ isRead: boolean }>`
     display: flex;
     cursor: pointer;
     align-items: flex-start;
@@ -19,7 +19,7 @@ const Container = styled.li`
     border-radius: 2vw;
     padding: 1.5vw;
     width: 80%;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: ${({ isRead }) => isRead ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.1)'};
     @media (max-width: 915px) {
         padding: 3vw;
         width: 90%;
