@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { Book } from '../../lib/types';
 import AuthCheck from '../../utils/AuthCheck';
+import { Helmet } from 'react-helmet';
 
 const BookPage = () => {
     const [data, setData] = useState<Book>();
@@ -44,6 +45,10 @@ const BookPage = () => {
 
     return (
         <AuthCheck>
+            <Helmet>
+                <title>Book</title>
+                <meta name="description" content="A page with more detailed work with the book" />
+            </Helmet>
             <BookPageContainer>
                 <BookDescription description={data.description} />
                 <BookOverview

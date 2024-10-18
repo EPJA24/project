@@ -6,6 +6,7 @@ import Welcome from './Welcome';
 import SearchBook from './SearchBook';
 import { MainContainer, LeftSection, RightSection, CoolButton, MenuIcon } from './styles/MainPage';
 import AuthCheck from '../../utils/AuthCheck';
+import { Helmet } from 'react-helmet';
 
 const AddPage = () => {
     const [books, setBooks] = useState([]);
@@ -17,6 +18,10 @@ const AddPage = () => {
 
     return (
         <AuthCheck>
+            <Helmet>
+                <title>Add book</title>
+                <meta name="description" content="A page with adding a book to your library" />
+            </Helmet>
             <MainContainer>
                 <LeftSection BurgerMenu={BurgerMenu}>
                     <Welcome />

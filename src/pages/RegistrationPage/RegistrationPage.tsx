@@ -5,10 +5,15 @@ import Footer from '../../components/RegistrationPage/RegistrationForm/Registrat
 import InputAndButtons from '../../components/RegistrationPage/RegistrationForm/RegistrationInput';
 import LogoAndTitle from '../../components/RegistrationPage/RegistrationForm/RegistrationLogo';
 import RegistrationImage from '../../components/RegistrationPage/RegistrationImage/RegistrationImage';
+import { Helmet } from 'react-helmet';
 
 const RegistrationPage = () => {
     return (
         <BookPageContainer>
+            <Helmet>
+                <title>Login</title>
+                <meta name="description" content="Authorization and registration page" />
+            </Helmet>
             <RegistrationImage />
             <BackgroundContainer>
                 <LogoAndTitle />
