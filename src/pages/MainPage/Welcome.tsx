@@ -8,6 +8,9 @@ const WelcomeMessage = styled.div`
   color: white;
   margin-top: 2vw;
   margin-left: 2vw;
+  @media (max-width: 915px) {
+    font-size: 5vw; 
+  }
 `;
 
 const Welcome = () => {

@@ -19,6 +19,13 @@ const SearchWrapper = styled.div`
     padding-right: 1.5vw;
     padding-left: 1.5vw;
     padding-bottom: 0.5vw;
+
+    @media (max-width: 915px) {
+        width: 92%; 
+        padding-right: 2vw;
+        padding-left: 2vw;
+        padding-bottom: 1.6vw;
+    }
 `;
 
 const Input = styled.input`
@@ -30,15 +37,23 @@ const Input = styled.input`
     font-size: 26px;
     color: white; 
     outline: none;
+
+    @media (max-width: 915px) {
+        font-size: 15px;
+        padding: 1.5vw; 
+    }
 `;
 
 const SearchButton = styled.button`
     background: none; 
     border: none; 
     cursor: pointer; 
-    margin-left: 1vw; 
     color: white; 
     font-size: 1.4vw; 
+
+    @media (max-width: 915px) {
+        font-size: 3vw; 
+    }
 
 `;
 

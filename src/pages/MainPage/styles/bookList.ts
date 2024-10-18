@@ -7,8 +7,8 @@ const Cover = styled.img`
     margin-right: 2vw;
     border-radius: 10px;
     @media (max-width: 915px) {
-        width: 20vw;
-        height: 24vw;
+        width: 25vw;
+        height: 29vw;
     }
 `;
 const Container = styled.li`
@@ -49,7 +49,7 @@ const BookDescription = styled.p`
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     @media (max-width: 915px) {
-        font-size: 3vw;
+        font-size: 2.2vw;
     }
 `;
 
@@ -62,7 +62,7 @@ const ReadMoreButton = styled.button`
     margin-top: 0.5vw;
     text-decoration: underline;
     @media (max-width: 915px) {
-        font-size: 3vw;
+        font-size: 2.2vw;
     }
 `;
 
@@ -72,7 +72,7 @@ const FullDescription = styled.p`
     font-family: Inter, sans-serif;
     margin: 0;
     @media (max-width: 915px) {
-        font-size: 3vw;
+        font-size: 2.2vw;
     }
 `;
 
