@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import ImageFiller from 'react-image-filler';
-import { Check, Forward, Star } from 'lucide-react';
+import { Check, Forward, Star, Trash } from 'lucide-react';
 
 import {
     BookOverviewContainer,
@@ -14,6 +14,8 @@ import BookStatistics from './BookStatistics';
 import Button from '../../ui/button/Button';
 import useModal from '../../../hooks/useModal';
 import ReviewModal from './ReviewModal';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 interface BookOverviewProps {
     imageSrc: string;
@@ -32,6 +34,8 @@ const BookOverview = ({
 }: BookOverviewProps) => {
     const [isCopied, setIsCopied] = useState(false);
     const { isOpen, handleClose, handleOpen } = useModal();
+    const params = useParams();
+    const navigate = useNavigate();
 
     const copyClipboard = () => {
         navigator.clipboard.writeText(`${window.location.href}`);
@@ -41,7 +45,12 @@ const BookOverview = ({
         return () => clearTimeout(timeout);
     };
 
-    const markAsRead = () => {};
+    const removeBook = async () => {
+        const response = await axios.delete(`https://www.backendus.com/books/${params.bookId}`, {
+            withCredentials: true
+        });
+        navigate('/lb-team');
+    };
 
     return (
         <BookOverviewContainer data-testid={'bookovercont'}>
@@ -69,6 +78,9 @@ const BookOverview = ({
             <Controls data-testid={'controls'}>
                 <Button icon={<Forward />} onClick={copyClipboard} disabled={isCopied}>
                     {isCopied ? 'Copied' : 'Share'}
+                </Button>
+                <Button icon={<Trash />} onClick={removeBook}>
+                    Delete book
                 </Button>
                 <Button icon={<Star />} onClick={handleOpen}>
                     Add review

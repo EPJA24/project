@@ -11,7 +11,7 @@ import { Title } from '../../styles';
 import { Edition as EditionType } from '../../../lib/types';
 import Button from '../../ui/button/Button';
 import Edition from './Edition';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 interface BookDescriptionProps {
@@ -50,6 +50,9 @@ const BookDescription = ({ description, bookUrl }: BookDescriptionProps) => {
 
     return (
         <BookDescriptionContainer data-testid={'cont'}>
+            <Link to="/lb-team" style={{ textDecoration: 'none', color: 'black' }}>
+                На главную
+            </Link>
             <Container>
                 <Title data-testid={'title'} $primary>
                     Short description
