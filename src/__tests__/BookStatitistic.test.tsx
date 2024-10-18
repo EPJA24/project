@@ -8,14 +8,13 @@ const PropsMock = {
     numberOfPages: 1,
     rating: 1,
     publishYear: 1
-}
+};
 describe('Page', () => {
     it('renders a BookStatistic component', () => {
-        render(
-            <BookStatistics {...PropsMock} />);
+        render(<BookStatistics {...PropsMock} />);
 
         const cont = screen.getByTestId('cont');
 
         expect(cont).toBeInTheDocument();
-
-    })})
+    });
+});

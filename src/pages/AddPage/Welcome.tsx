@@ -29,7 +29,9 @@ const Welcome = () => {
         };
         fetchUserInfo();
     }, []);
-    return <WelcomeMessage data-testid={"welcome"}>Find your book here, {userName}.</WelcomeMessage>;
+    return (
+        <WelcomeMessage data-testid={'welcome'}>Find your book here, {userName}.</WelcomeMessage>
+    );
 };
 
 export default Welcome;

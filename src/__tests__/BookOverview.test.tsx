@@ -3,18 +3,20 @@ import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import BookOverview from '../components/BookPage/BookOverview/BookOverview';
-
+import { MemoryRouter } from 'react-router-dom';
 
 describe('Page', () => {
     it('renders an Overview component', () => {
         render(
-            <BookOverview
-                bookName={""}
-                imageSrc={""}
-                isFinished={true}
-                numberOfPages={1}
-                publishYear={1}
-                rating={1}/>
+            <MemoryRouter>
+                <BookOverview
+                    bookName={''}
+                    imageSrc={''}
+                    numberOfPages={1}
+                    publishYear={1}
+                    rating={1}
+                />
+            </MemoryRouter>
         );
 
         const bookoverview = screen.getByTestId('bookovercont');
@@ -26,5 +28,5 @@ describe('Page', () => {
         expect(img).toBeInTheDocument();
         expect(title).toBeInTheDocument();
         expect(controls).toBeInTheDocument();
-
-    })})
+    });
+});

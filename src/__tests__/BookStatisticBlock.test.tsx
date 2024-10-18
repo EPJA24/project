@@ -4,11 +4,9 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import BookStatisticBlock from '../components/BookPage/BookOverview/BookStatisticBlock';
 
-
 describe('Page', () => {
     it('renders a BookStatisticBlock component', () => {
-        render(
-            <BookStatisticBlock  title={""} value={0}/>);
+        render(<BookStatisticBlock title={''} value={0} />);
 
         const block = screen.getByTestId('block');
         const title = screen.getByTestId('title');
@@ -17,5 +15,5 @@ describe('Page', () => {
         expect(block).toBeInTheDocument();
         expect(value).toBeInTheDocument();
         expect(title).toBeInTheDocument();
-
-    })})
+    });
+});

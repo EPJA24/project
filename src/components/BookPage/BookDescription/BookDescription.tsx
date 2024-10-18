@@ -62,7 +62,8 @@ const BookDescription = ({ description, bookUrl }: BookDescriptionProps) => {
                     data-testid={'button'}
                     icon={<Book />}
                     primary
-                    onClick={() => navigate(bookUrl) ?? ''}>
+                    onClick={() => navigate(bookUrl) ?? ''}
+                >
                     Start reading
                 </Button>
             </Container>

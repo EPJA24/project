@@ -62,6 +62,6 @@ const Review = styled.span`
     padding: 5px 10px;
     border-radius: 5px;
     max-width: 600px;
-`
+`;
 
 export { BookDescriptionContainer, Description, Container, EditionList, Review };

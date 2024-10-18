@@ -47,7 +47,7 @@ const Image = styled.img`
         width: 300px;
         height: 450px;
     }
-`
+`;
 
 const Controls = styled.div`
     display: flex;

@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import {LogoAndTitle} from '../pages/AddPage/logo'
+import { LogoAndTitle } from '../pages/AddPage/logo';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Page', () => {
@@ -10,7 +10,8 @@ describe('Page', () => {
         render(
             <MemoryRouter>
                 <LogoAndTitle />
-            </ MemoryRouter >);
+            </MemoryRouter>
+        );
 
         const logocont = screen.getByTestId('logocont');
         const beauttext = screen.getByTestId('beauttext');
@@ -19,5 +20,5 @@ describe('Page', () => {
         expect(logocont).toBeInTheDocument();
         expect(beauttext).toBeInTheDocument();
         expect(button).toBeInTheDocument();
-
-    })})
+    });
+});

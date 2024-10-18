@@ -19,7 +19,8 @@ const Container = styled.li<{ isRead: boolean }>`
     border-radius: 2vw;
     padding: 1.5vw;
     width: 80%;
-    background-color: ${({ isRead }) => isRead ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.1)'};
+    background-color: ${({ isRead }) =>
+        isRead ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.1)'};
     @media (max-width: 915px) {
         padding: 3vw;
         width: 90%;

@@ -10,7 +10,7 @@ interface BookStatisticsProps {
 
 const BookStatistics = ({ numberOfPages, rating, publishYear }: BookStatisticsProps) => {
     return (
-        <BookStatisticsContainer data-testid={"cont"}>
+        <BookStatisticsContainer data-testid={'cont'}>
             <BookStatisticBlock title="Number of pages" value={numberOfPages} />
             <BookStatisticBlock title="Rating" value={rating} />
             <BookStatisticBlock title="Publish year" value={publishYear} />
