@@ -56,24 +56,26 @@ const SearchButton = styled.button`
     }
 `;
 
-const SearchBook = ({ setBooks, initialBooks }) => {
+const SearchBook = ({ setBooks }) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleSearch = async () => {
-        if (!searchTerm) {
-            setBooks(initialBooks);
-            return;
-        }
+        if (!searchTerm) return;
+
         try {
-            const response = await axios.get('https://www.backendus.com/books/users_book/search', {
-                params: { title: searchTerm },
-                withCredentials: true
-            });
-            setBooks(response.data);
+            const response = await axios.get(
+                `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`
+            );
+            const books = response.data.items.map((item) => ({
+                id: item.id,
+                title: item.volumeInfo.title,
+                description: item.volumeInfo.description,
+                cover_url: item.volumeInfo.imageLinks?.thumbnail || '/default_cover.jpg'
+            }));
+            setBooks(books);
             setSearchTerm('');
         } catch (error) {
             console.error('Error searching for books:', error);
-            setBooks(initialBooks);
         }
     };
 
@@ -82,7 +84,7 @@ const SearchBook = ({ setBooks, initialBooks }) => {
             <SearchWrapper>
                 <Input
                     type="text"
-                    placeholder="Write book name"
+                    placeholder="Enter the title of the book to search here"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />

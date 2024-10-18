@@ -29,7 +29,7 @@ const Welcome = () => {
         };
         fetchUserInfo();
     }, []);
-    return <WelcomeMessage>Your books are here, {userName}.</WelcomeMessage>;
+    return <WelcomeMessage>Find your book here, {userName}.</WelcomeMessage>;
 };
 
 export default Welcome;

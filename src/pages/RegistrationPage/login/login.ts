@@ -21,21 +21,20 @@ const login = async (creds: loginCreds): Promise<loginResponse> => {
     args.append('username', creds.username);
     args.append('password', creds.password);
 
-
     try {
         const res = await axios.post('https://www.backendus.com/auth/token', args, {
-            withCredentials: true,
+            withCredentials: true
         });
 
         if (res.status === 200) {
             return {
                 token: res.data as Token,
-                resCode: res.status,
+                resCode: res.status
             };
         } else {
             return {
                 resCode: res.status,
-                errorMsg: 'Unexpected response status',
+                errorMsg: 'Unexpected response status'
             };
         }
     } catch (err: any) {
@@ -43,7 +42,7 @@ const login = async (creds: loginCreds): Promise<loginResponse> => {
 
         return {
             resCode: err.response?.status || 500,
-            errorMsg: err.message || 'An unknown error occurred',
+            errorMsg: err.message || 'An unknown error occurred'
         };
     }
 };

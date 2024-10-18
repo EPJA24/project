@@ -5,18 +5,20 @@ const Cover = styled.img`
     height: 12vw;
     object-fit: cover;
     margin-right: 2vw;
+    border-radius: 10px;
     @media (max-width: 915px) {
-        width: 20vw;
-        height: 24vw;
+        width: 25vw;
+        height: 29vw;
     }
 `;
 const Container = styled.li`
     display: flex;
+    cursor: pointer;
     align-items: flex-start;
     border: 0.2vw solid white;
     border-radius: 2vw;
     padding: 1.5vw;
-    width: 80%; 
+    width: 80%;
     background-color: rgba(255, 255, 255, 0.1);
     @media (max-width: 915px) {
         padding: 3vw;
@@ -41,13 +43,13 @@ const BookDescription = styled.p`
     margin: 0;
     color: #a4a4a4;
     font-family: Inter, sans-serif;
-    max-height: 5vw; 
-    overflow: hidden; 
+    max-height: 5vw;
+    overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     @media (max-width: 915px) {
-        font-size: 3vw;
+        font-size: 2.2vw;
     }
 `;
 
@@ -60,7 +62,7 @@ const ReadMoreButton = styled.button`
     margin-top: 0.5vw;
     text-decoration: underline;
     @media (max-width: 915px) {
-        font-size: 3vw;
+        font-size: 2.2vw;
     }
 `;
 
@@ -70,7 +72,7 @@ const FullDescription = styled.p`
     font-family: Inter, sans-serif;
     margin: 0;
     @media (max-width: 915px) {
-        font-size: 3vw;
+        font-size: 2.2vw;
     }
 `;
 
@@ -88,8 +90,7 @@ const Wrapper = styled.ul`
     &::-webkit-scrollbar {
         display: none;
     }
-    align-items: center; 
+    align-items: center;
 `;
-
 
 export { Cover, Container, BookName, BookDescription, Wrapper, FullDescription, ReadMoreButton };

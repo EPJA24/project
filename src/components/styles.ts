@@ -1,4 +1,4 @@
-import { createGlobalStyle, styled } from "styled-components";
+import { createGlobalStyle, styled } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -28,17 +28,17 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Title = styled.h1<{ $primary?: boolean }>`
-  --primary-text-color: ${(props) => (props.$primary ? "black" : "white")};
+    --primary-text-color: ${(props) => (props.$primary ? 'black' : 'white')};
 
-  font-size: 36px;
-  user-select: none;
-  margin: 0;
-  margin-top: 25px;
-  color: var(--primary-text-color);
+    font-size: 36px;
+    user-select: none;
+    margin: 0;
+    margin-top: 25px;
+    color: var(--primary-text-color);
 
-  @media screen and (max-width: 1024px) {
-    font-size: 24px;
-  }
+    @media screen and (max-width: 1024px) {
+        font-size: 24px;
+    }
 `;
 
 export { Title, GlobalStyle };

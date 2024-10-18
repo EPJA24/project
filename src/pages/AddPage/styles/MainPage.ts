@@ -9,7 +9,7 @@ export const MainContainer = styled.div`
 export const LeftSection = styled.div<{ BurgerMenu: boolean }>`
     display: flex;
     flex-direction: column;
-    width: 100%; // Здесь, чтобы LeftSection занимал всю ширину экрана
+    width: 100%;
 `;
 
 export const RightSection = styled.div<{ BurgerMenu: boolean }>`
@@ -41,8 +41,8 @@ export const CoolButton = styled.button`
     align-items: center;
     justify-content: center;
     position: fixed;
-    bottom: 20px; // Переносим кнопку в нижнюю часть
-    right: 20px; // Кнопка будет слева
+    bottom: 20px;
+    right: 20px;
     padding: 10px;
     background-color: black;
     color: white;

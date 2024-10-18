@@ -1,5 +1,12 @@
 import React from 'react';
-import {LogoContainer, Logo, VerticalLine, LogoText, TextContainer, Title } from './styles/RegistrationLogo.styled'
+import {
+    LogoContainer,
+    Logo,
+    VerticalLine,
+    LogoText,
+    TextContainer,
+    Title
+} from './styles/RegistrationLogo.styled';
 import logo from '../../../assets/logo.png';
 
 const LogoAndTitle = () => {
@@ -15,6 +22,6 @@ const LogoAndTitle = () => {
             </TextContainer>
         </>
     );
-  };
-  
-  export default LogoAndTitle;
+};
+
+export default LogoAndTitle;

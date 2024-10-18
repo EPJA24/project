@@ -18,7 +18,7 @@ const Container = styled.li`
     border: 0.2vw solid white;
     border-radius: 2vw;
     padding: 1.5vw;
-    width: 80%; 
+    width: 80%;
     background-color: rgba(255, 255, 255, 0.1);
     @media (max-width: 915px) {
         padding: 3vw;
@@ -43,8 +43,8 @@ const BookDescription = styled.p`
     margin: 0;
     color: #a4a4a4;
     font-family: Inter, sans-serif;
-    max-height: 5vw; 
-    overflow: hidden; 
+    max-height: 5vw;
+    overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
@@ -90,8 +90,7 @@ const Wrapper = styled.ul`
     &::-webkit-scrollbar {
         display: none;
     }
-    align-items: center; 
+    align-items: center;
 `;
-
 
 export { Cover, Container, BookName, BookDescription, Wrapper, FullDescription, ReadMoreButton };

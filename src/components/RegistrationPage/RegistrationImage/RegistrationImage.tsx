@@ -1,10 +1,8 @@
-import React from 'react'
-import { ImageContainer } from './styles/RegistrationImage.styled'
+import React from 'react';
+import { ImageContainer } from './styles/RegistrationImage.styled';
 
 const RegistrationImage = () => {
-    return (
-        <ImageContainer/>
-    )
-  }
-  
+    return <ImageContainer />;
+};
+
 export default RegistrationImage;

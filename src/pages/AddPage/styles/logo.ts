@@ -50,9 +50,9 @@ const ButtonAction = styled.button`
     }
 
     @media (max-width: 768px) {
-        padding: 1.5vw 3vw; /* Увеличение padding */
-        font-size: 3vw; /* Увеличение шрифта */
-        border-radius: 2vw; /* Увеличение радиуса закругления */
+        padding: 1.5vw 3vw;
+        font-size: 3vw;
+        border-radius: 2vw;
     }
 `;
 
