@@ -8,9 +8,9 @@ interface BookStatisticBlockProps {
 
 const BookStatisticBlock = ({ title, value }: BookStatisticBlockProps) => {
     return (
-        <Block>
-            <BlockTitle>{title}</BlockTitle>
-            <BlockValue>{value}</BlockValue>
+        <Block data-testid={"block"}>
+            <BlockTitle data-testid={"title"}>{title}</BlockTitle>
+            <BlockValue data-testid={"value"}>{value}</BlockValue>
         </Block>
     );
 };

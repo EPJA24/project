@@ -19,16 +19,16 @@ export const LogoAndTitle = () => {
 
     return (
         <div>
-            <LogoContainer>
+            <LogoContainer data-testid={"logocont"}>
                 <Logo src={logo} alt="Логотип" />
                 <VerticalLine />
                 <LogoText>For your books</LogoText>
             </LogoContainer>
-            <BeautifulText>
+            <BeautifulText data-testid={"beauttext"}>
                 "Books are the quietest and most constant of friends; they are the most accessible
                 and wisest of counselors, and the most patient of teachers." — Charles W. Eliot
             </BeautifulText>
-            <ButtonAction onClick={handleAddBookClick}>MY BOOK📚</ButtonAction>
+            <ButtonAction data-testid={"button"} onClick={handleAddBookClick}>MY BOOK📚</ButtonAction>
         </div>
     );
 };

@@ -19,7 +19,7 @@ import { X } from 'lucide-react';
 const Modal = ({ children, width, height, modalId }: ModalProps) => {
     return (
         <ReactPortal portalId={modalId}>
-            <ModalWrapper $width={width} $height={height}>
+            <ModalWrapper data-testid={"modal"}   $width={width} $height={height}>
                 {children}
             </ModalWrapper>
         </ReactPortal>
@@ -28,22 +28,22 @@ const Modal = ({ children, width, height, modalId }: ModalProps) => {
 
 const ModalCloseTrigger = ({ width, ...props }: ModalTriggerProps) => {
     return (
-        <CloseButton {...props}>
+        <CloseButton  data-testid={"modaltrigger"}  {...props}>
             <X width={width} />
         </CloseButton>
     );
 };
 
 const ModalHeader = ({ children }: ModalHeaderProps) => {
-    return <ModalHeaderWrapper>{children}</ModalHeaderWrapper>;
+    return <ModalHeaderWrapper data-testid={"modalheader"}>{children}</ModalHeaderWrapper>;
 };
 
 const ModalTitle = ({ children }: ModalTitleProps) => {
-    return <MT>{children}</MT>;
+    return <MT data-testid={"modaltitle"}>{children}</MT>;
 };
 
 const ModalContent = ({ children }: ModalContentProps) => {
-    return <Content>{children}</Content>;
+    return <Content data-testid={"modalcontent"} >{children}</Content>;
 };
 
 export { Modal, ModalCloseTrigger, ModalHeader, ModalTitle, ModalContent };

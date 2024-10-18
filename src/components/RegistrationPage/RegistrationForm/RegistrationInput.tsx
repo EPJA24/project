@@ -84,7 +84,7 @@ const InputAndButtons = () => {
     return (
         <>
             <InputContainerCont>
-                <InputContainer>
+                <InputContainer data-testid={"inputcont"}>
                     <Label htmlFor="username">username</Label>
                     <Input
                         type="text"
@@ -93,7 +93,7 @@ const InputAndButtons = () => {
                         {...register('username')}
                     />
                 </InputContainer>
-                <InputContainer>
+                <InputContainer data-testid={"inputcont2"}>
                     <Label htmlFor="password">password</Label>
                     <Input
                         type="password"
@@ -104,7 +104,7 @@ const InputAndButtons = () => {
                     {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
                 </InputContainer>
             </InputContainerCont>
-            <ButtonContainer>
+            <ButtonContainer data-testid={"buttoncont"}>
                 <Button onClick={handleSubmit(onSubmit)}>Sign In</Button>
                 <Button onClick={handleSubmit(handleSignUp)}>Sign Up</Button>
             </ButtonContainer>

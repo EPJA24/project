@@ -6,7 +6,7 @@ import { MemoryRouter } from 'react-router-dom';
 import BookDescription from "../components/BookPage/BookDescription/BookDescription";
 
 describe('Page', () => {
-    it('renders a bookDescription page', () => {
+    it('renders a bookDescription component', () => {
         render(
             <MemoryRouter>
             <BookDescription  description={""}/>,

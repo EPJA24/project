@@ -46,8 +46,8 @@ const BookOverview = ({
     const markAsRead = () => {};
 
     return (
-        <BookOverviewContainer>
-            <ImageContainer>
+        <BookOverviewContainer data-testid={"bookovercont"}>
+            <ImageContainer data-testid={"imgcont"}>
                 {imageSrc ? (
                     <Image src={imageSrc} alt="book image" />
                 ) : (
@@ -59,14 +59,14 @@ const BookOverview = ({
                         style={{ borderRadius: '10px' }}
                     />
                 )}
-                <BookTitle $primary>{bookName}</BookTitle>
+                <BookTitle data-testid={"booktitle"} $primary>{bookName}</BookTitle>
             </ImageContainer>
             <BookStatistics
                 numberOfPages={numberOfPages}
                 rating={rating}
                 publishYear={publishYear}
             />
-            <Controls>
+            <Controls data-testid={"controls"}>
                 <Button icon={<Forward />} onClick={copyClipboard} disabled={isCopied}>
                     {isCopied ? 'Copied' : 'Share'}
                 </Button>

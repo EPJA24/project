@@ -81,14 +81,14 @@ const SearchBook = ({ setBooks }) => {
 
     return (
         <SearchContainer>
-            <SearchWrapper>
-                <Input
+            <SearchWrapper data-testid={"wrap"}>
+                <Input data-testid={"input"}
                     type="text"
                     placeholder="Enter the title of the book to search here"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <SearchButton onClick={handleSearch}>🔍</SearchButton>
+                <SearchButton data-testid={"button"} onClick={handleSearch}>🔍</SearchButton>
             </SearchWrapper>
         </SearchContainer>
     );

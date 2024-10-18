@@ -12,12 +12,12 @@ import logo from '../../../assets/logo.png';
 const LogoAndTitle = () => {
     return (
         <>
-            <LogoContainer>
+            <LogoContainer data-testid={"logocont"}>
                 <Logo src={logo} alt="Логотип" />
                 <VerticalLine />
                 <LogoText>For your books</LogoText>
             </LogoContainer>
-            <TextContainer>
+            <TextContainer data-testid={"textcont"}>
                 <Title>Welcome, login to your account</Title>
             </TextContainer>
         </>

@@ -10,8 +10,8 @@ interface EditionProps {
 
 const Edition = ({ edition }: EditionProps) => {
     return (
-        <EditionContainer>
-            <ImageContainer>
+        <EditionContainer data-testid={"editcont"}>
+            <ImageContainer data-testid={"imgcont"}>
                 {edition.imageSrc ? (
                     <img
                         src={edition.imageSrc}
@@ -28,7 +28,7 @@ const Edition = ({ edition }: EditionProps) => {
                     />
                 )}
             </ImageContainer>
-            <EditionTitle>{edition.title}</EditionTitle>
+            <EditionTitle data-testid={"edittitle"}>{edition.title}</EditionTitle>
         </EditionContainer>
     );
 };
