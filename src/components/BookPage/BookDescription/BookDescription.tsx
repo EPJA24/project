@@ -20,7 +20,7 @@ interface BookDescriptionProps {
 }
 
 const BookDescription = ({ description, bookUrl }: BookDescriptionProps) => {
-    const [reviews, setReviews] = useState([1, 2, 3]);
+    const [reviews, setReviews] = useState([]);
     const navigate = useNavigate();
     const params = useParams();
 
@@ -28,7 +28,10 @@ const BookDescription = ({ description, bookUrl }: BookDescriptionProps) => {
         const fetchReviews = async () => {
             try {
                 const response = await axios.get(
-                    `https://www.backendus.com/books/${params.bookId}/reviews`
+                    `https://www.backendus.com/books/${params.bookId}/reviews`,
+                    {
+                        withCredentials: true
+                    }
                 );
 
                 setReviews(response.data);
@@ -46,19 +49,25 @@ const BookDescription = ({ description, bookUrl }: BookDescriptionProps) => {
     }
 
     return (
-        <BookDescriptionContainer data-testid={"cont"}>
+        <BookDescriptionContainer data-testid={'cont'}>
             <Container>
-                <Title data-testid={"title"} $primary>Short description</Title>
-                <Description data-testid={"desc"} >{description}</Description>
-                <Button data-testid={"button"} icon={<Book />} primary onClick={() => navigate(bookUrl) ?? ''}>
+                <Title data-testid={'title'} $primary>
+                    Short description
+                </Title>
+                <Description data-testid={'desc'}>{description}</Description>
+                <Button
+                    data-testid={'button'}
+                    icon={<Book />}
+                    primary
+                    onClick={() => navigate(bookUrl) ?? ''}>
                     Start reading
                 </Button>
             </Container>
 
-            <Container data-testid={"cont2"}>
+            <Container data-testid={'cont2'}>
                 <Title $primary>Reviews</Title>
                 {reviews.map((review, index) => (
-                    <Review key={index}>New review</Review>
+                    <Review key={index}>{review.text}</Review>
                 ))}
             </Container>
         </BookDescriptionContainer>

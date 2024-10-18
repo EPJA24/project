@@ -21,7 +21,6 @@ interface BookOverviewProps {
     rating: number;
     publishYear: number;
     numberOfPages: number;
-    isFinished: boolean;
 }
 
 const BookOverview = ({
@@ -29,8 +28,7 @@ const BookOverview = ({
     bookName,
     rating,
     publishYear,
-    numberOfPages,
-    isFinished
+    numberOfPages
 }: BookOverviewProps) => {
     const [isCopied, setIsCopied] = useState(false);
     const { isOpen, handleClose, handleOpen } = useModal();
@@ -46,8 +44,8 @@ const BookOverview = ({
     const markAsRead = () => {};
 
     return (
-        <BookOverviewContainer data-testid={"bookovercont"}>
-            <ImageContainer data-testid={"imgcont"}>
+        <BookOverviewContainer data-testid={'bookovercont'}>
+            <ImageContainer data-testid={'imgcont'}>
                 {imageSrc ? (
                     <Image src={imageSrc} alt="book image" />
                 ) : (
@@ -59,19 +57,18 @@ const BookOverview = ({
                         style={{ borderRadius: '10px' }}
                     />
                 )}
-                <BookTitle data-testid={"booktitle"} $primary>{bookName}</BookTitle>
+                <BookTitle data-testid={'booktitle'} $primary>
+                    {bookName}
+                </BookTitle>
             </ImageContainer>
             <BookStatistics
                 numberOfPages={numberOfPages}
                 rating={rating}
                 publishYear={publishYear}
             />
-            <Controls data-testid={"controls"}>
+            <Controls data-testid={'controls'}>
                 <Button icon={<Forward />} onClick={copyClipboard} disabled={isCopied}>
                     {isCopied ? 'Copied' : 'Share'}
-                </Button>
-                <Button icon={<Check />} onClick={markAsRead}>
-                    {isFinished ? 'Mark as unread' : 'Mark as read'}
                 </Button>
                 <Button icon={<Star />} onClick={handleOpen}>
                     Add review

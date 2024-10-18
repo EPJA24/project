@@ -57,7 +57,6 @@ const BookPage = () => {
                     numberOfPages={data.page_count}
                     rating={data.google_rating}
                     publishYear={Number(data.published_date.split('-')[0])}
-                    isFinished={false}
                 />
             </BookPageContainer>
         </AuthCheck>
