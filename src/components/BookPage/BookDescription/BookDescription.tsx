@@ -46,16 +46,16 @@ const BookDescription = ({ description, bookUrl }: BookDescriptionProps) => {
     }
 
     return (
-        <BookDescriptionContainer>
+        <BookDescriptionContainer data-testid={"cont"}>
             <Container>
-                <Title $primary>Short description</Title>
-                <Description>{description}</Description>
-                <Button icon={<Book />} primary onClick={() => navigate(bookUrl) ?? ''}>
+                <Title data-testid={"title"} $primary>Short description</Title>
+                <Description data-testid={"desc"} >{description}</Description>
+                <Button data-testid={"button"} icon={<Book />} primary onClick={() => navigate(bookUrl) ?? ''}>
                     Start reading
                 </Button>
             </Container>
 
-            <Container>
+            <Container data-testid={"cont2"}>
                 <Title $primary>Reviews</Title>
                 {reviews.map((review, index) => (
                     <Review key={index}>New review</Review>

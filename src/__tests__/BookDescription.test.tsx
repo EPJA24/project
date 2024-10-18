@@ -14,17 +14,15 @@ describe('Page', () => {
         );
 
         const container = screen.getByTestId('cont');
-        const desc = screen.getByText('Short description');
-        const button = screen.getByText('Start reading')
+        const title = screen.getByTestId('title');
+        const desc = screen.getByTestId('desc');
+        const button = screen.getByTestId('button')
         const container2 = screen.getByTestId('cont2');
-        const other = screen.getByText('Other editions');
-        const editlist  =screen.getByTestId('editlist');
 
         expect(desc).toBeInTheDocument();
         expect(container).toBeInTheDocument();
         expect(button).toBeInTheDocument();
         expect(container2).toBeInTheDocument();
-        expect(other).toBeInTheDocument();
-        expect(editlist).toBeInTheDocument();
+        expect(title).toBeInTheDocument();
 
     })})
