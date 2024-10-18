@@ -50,7 +50,7 @@ const BookPage = () => {
                     imageSrc={data.cover_url}
                     bookName={data.title}
                     numberOfPages={data.page_count}
-                    rating={4}
+                    rating={data.google_rating}
                     publishYear={Number(data.published_date.split('-')[0])}
                     isFinished={false}
                 />

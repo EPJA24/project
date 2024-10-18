@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 
 import ImageFiller from 'react-image-filler';
 import { Check, Forward, Star } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
 
 import {
     BookOverviewContainer,
     ImageContainer,
     BookTitle,
-    Controls
+    Controls,
+    Image
 } from './styles/BookOverview.styled';
 import BookStatistics from './BookStatistics';
 import Button from '../../ui/button/Button';
@@ -49,11 +49,7 @@ const BookOverview = ({
         <BookOverviewContainer>
             <ImageContainer>
                 {imageSrc ? (
-                    <img
-                        src={imageSrc}
-                        alt="book image"
-                        style={{ borderRadius: '10px', width: '350px', height: '520px' }}
-                    />
+                    <Image src={imageSrc} alt="book image" />
                 ) : (
                     <ImageFiller
                         width={350}

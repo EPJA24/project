@@ -5,6 +5,8 @@ import { Comments, Form } from './styles/ReviewModal.styled';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 interface ReviewModalProps {
     handleClose: () => void;
@@ -22,10 +24,21 @@ const ReviewModal = ({ handleClose }: ReviewModalProps) => {
         reValidateMode: 'onSubmit',
         resolver: zodResolver(schema)
     });
+    const params = useParams();
 
-    const addReview: SubmitHandler<CommentType> = (data) => {
-        console.log(data);
+    const addReview: SubmitHandler<CommentType> = async (data) => {
+        await axios.post(
+            `https://www.backendus.com/books/${params.bookId}/reviews`,
+            {
+                rating: 0,
+                text: data.comment
+            },
+            {
+                withCredentials: true
+            }
+        );
         reset();
+        handleClose();
     };
 
     return (

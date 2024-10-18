@@ -36,12 +36,18 @@ const BookTitle = styled(Title)`
     bottom: -40px;
     text-align: center;
     mix-blend-mode: difference;
-
-    @media screen and (max-width: 1024px) {
-        font-size: 54px;
-        bottom: -25px;
-    }
 `;
+
+const Image = styled.img`
+    border-radius: 10px;
+    width: 350px;
+    height: 520px;
+
+    @media screen and (max-width: 620px) {
+        width: 300px;
+        height: 450px;
+    }
+`
 
 const Controls = styled.div`
     display: flex;
@@ -53,4 +59,4 @@ const Controls = styled.div`
     }
 `;
 
-export { BookOverviewContainer, ImageContainer, BookTitle, Controls };
+export { BookOverviewContainer, ImageContainer, BookTitle, Controls, Image };

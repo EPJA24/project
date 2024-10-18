@@ -54,4 +54,14 @@ const Description = styled.p`
     margin-bottom: 40px;
 `;
 
-export { BookDescriptionContainer, Description, Container, EditionList };
+const Review = styled.span`
+    color: #868686;
+    font-size: 20px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    max-width: 600px;
+`
+
+export { BookDescriptionContainer, Description, Container, EditionList, Review };

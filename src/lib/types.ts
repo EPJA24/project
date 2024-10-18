@@ -15,6 +15,7 @@ export type Book = {
     google_books_id: string;
     id: number;
     title: string;
+    google_rating: number;
     description: string;
     authors: string;
     cover_url: string;
