@@ -22,4 +22,5 @@ export type Book = {
     publisher: string;
     published_date: string;
     page_count: number;
+    previewLink: string;
 };

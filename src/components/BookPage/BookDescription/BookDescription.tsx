@@ -51,7 +51,7 @@ const BookDescription = ({ description, bookUrl }: BookDescriptionProps) => {
     return (
         <BookDescriptionContainer data-testid={'cont'}>
             <Link to="/lb-team" style={{ textDecoration: 'none', color: 'black' }}>
-                На главную
+                Home
             </Link>
             <Container>
                 <Title data-testid={'title'} $primary>

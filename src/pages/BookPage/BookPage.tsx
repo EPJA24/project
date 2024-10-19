@@ -50,7 +50,7 @@ const BookPage = () => {
                 <meta name="description" content="A page with more detailed work with the book" />
             </Helmet>
             <BookPageContainer>
-                <BookDescription description={data.description} />
+                <BookDescription description={data.description} bookUrl={data.previewLink} />
                 <BookOverview
                     imageSrc={data.cover_url}
                     bookName={data.title}
