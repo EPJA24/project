@@ -19,6 +19,11 @@ const BookDescriptionContainer = styled.div`
     }
 `;
 
+const Link = styled.a`
+    text-decoration: none;
+    color: white;
+`
+
 const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -64,4 +69,4 @@ const Review = styled.span`
     max-width: 600px;
 `
 
-export { BookDescriptionContainer, Description, Container, EditionList, Review };
+export { BookDescriptionContainer, Description, Container, EditionList, Review, Link };

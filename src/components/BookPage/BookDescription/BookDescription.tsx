@@ -4,6 +4,7 @@ import {
     Description,
     Container,
     EditionList,
+    Link as PreviewLink,
     Review
 } from './styles/BookDescription.styled';
 import { Book } from 'lucide-react';
@@ -62,8 +63,10 @@ const BookDescription = ({ description, bookUrl }: BookDescriptionProps) => {
                     data-testid={'button'}
                     icon={<Book />}
                     primary
-                    onClick={() => navigate(bookUrl) ?? ''}>
-                    Start reading
+                >
+                    <PreviewLink href={bookUrl ?? ''}>
+                        Start reading
+                    </PreviewLink>
                 </Button>
             </Container>
 
